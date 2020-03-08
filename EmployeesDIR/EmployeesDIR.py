@@ -2,10 +2,11 @@ import sys, os
 import dill as pickle
 
 class Employee(object):
-    def __init__(self, passed_name, passed_number, passed_comment):
+    def __init__(self, passed_name, passed_number, passed_comment,passed_email):
         self.name = passed_name
         self.number = passed_number
         self.comment = passed_comment
+        self.email = passed_email
 
     def find(self, search_term):
         if self.name.lower().find(search_term.lower()) != -1:
@@ -14,6 +15,8 @@ class Employee(object):
             return 1
         elif self.comment.lower().find(search_term.lower()) != -1:
             return 1
+        elif self.email.lower().find(search_term.lower()) != -1:
+            return 1
         else:
             return 0
 
@@ -21,6 +24,7 @@ class Employee(object):
         print("姓名:", self.name)
         print("电话号码:", self.number)
         print("备注:", self.comment)
+        print("邮箱:", self.email)
 
 def load_data(filename = "Employees.txt"):
     try:
@@ -86,7 +90,8 @@ while choice != 7:
         name = input("\n请输入员工名称: ")
         number = input("请输入员工电话: ")
         comment = input("请输入员工备注: ")
-        employees.append(Employee(name, number, comment))
+        email = input("请输入员工邮箱: ")
+        employees.append(Employee(name, number, comment, email))
         input("\n员工已添加，按回车继续...")
 
     elif choice == 3:
@@ -98,7 +103,7 @@ while choice != 7:
             input("\n员工已删除，按回车继续...")
 
     elif choice == 4:
-        search_term = input("\n请输入员工名称或电话号码或备注: ")
+        search_term = input("\n请输入员工名称或电话号码或备注或邮箱: ")
         for x in range(0, len(employees)):
             result = employees[x].find(search_term)
             if result == 1:
@@ -107,9 +112,9 @@ while choice != 7:
         input("\n按回车继续...")
 
     elif choice == 5:
-        filename = input("\n输入文件名（将保存在同一目录）（不输入将自动保存）: ")
+        filename = input("\n输入文件名（将保存在同一目录）: ")
         save_data(filename)
 
     elif choice == 6:
-        filename = input("\n输入文件名（请把文件放在同一目录下）（不输入将读取自动保存的数据）: ")
+        filename = input("\n输入文件名（请把文件放在同一目录下）: ")
         load_data(filename)

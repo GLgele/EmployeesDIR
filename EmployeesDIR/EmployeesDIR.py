@@ -37,7 +37,7 @@ def load_data(filename = "Employees.txt"):
     except OSError as err:
         print("文件打开失败！错误代码:")
         print(err)
-        sys.exit(1)
+        input("\n按回车继续...")
 
 def save_data(filename = "Employees.txt"):
     try:
@@ -103,18 +103,31 @@ while choice != 7:
             input("\n员工已删除，按回车继续...")
 
     elif choice == 4:
-        search_term = input("\n请输入员工名称或电话号码或备注或邮箱: ")
+        print("\n支持部分查询，如：输入au查找所有 名称 或 电话号码 或 备注 或 邮箱 含有au的人")
+        search_term = input("请输入员工名称 或 电话号码 或 备注 或 邮箱: ")
         for x in range(0, len(employees)):
             result = employees[x].find(search_term)
             if result == 1:
                 print("\n员工序号:", x + 1)
                 employees[x].show()
-        input("\n按回车继续...")
+            elif result == 0:
+                print("\n没有找到含有该信息的员工！")
+        input("按回车继续...")
 
     elif choice == 5:
         filename = input("\n输入文件名（将保存在同一目录）: ")
+        #if filename == "" or filename == " ":
+        #    save_data()
         save_data(filename)
 
     elif choice == 6:
         filename = input("\n输入文件名（请把文件放在同一目录下）: ")
+        #if filename == "" or filename == " ":
+        #    load_data()
         load_data(filename)
+    elif choice == 7:
+        sys.exit(0)
+    else:
+        print("错误的操作！")
+        input("\n按回车继续...")
+        continue

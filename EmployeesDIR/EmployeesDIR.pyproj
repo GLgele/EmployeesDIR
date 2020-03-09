@@ -27,6 +27,7 @@
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.7" />
     <InterpreterReference Include="Global|PythonCore|3.7-32" />
+    <InterpreterReference Include="Global|PythonCore|3.8" />
     <InterpreterReference Include="Global|VisualStudio|Python 3.7.4" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

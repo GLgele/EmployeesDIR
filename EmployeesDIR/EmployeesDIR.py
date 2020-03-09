@@ -162,7 +162,7 @@ while choice != 8:
             if retval == 5:
                 input("\n按回车继续...")
             elif retval <5:
-                employees[x-1].setinfo()
+                employees[x-1].infoset()
             else:
                 print("错误的操作！")
                 input("\n按回车继续...")

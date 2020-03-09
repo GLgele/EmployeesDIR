@@ -1,5 +1,10 @@
-# EmployeesDIR
+﻿# EmployeesDIR
 EmployeesDIR on Python
+
+注意:如果编译出错请使用3.7 64bit试试，不要用Visual Studio编译！会出错！
+不要用Visual Studio编译！会出错！
+不要用Visual Studio编译！会出错！
+不要用Visual Studio编译！会出错！
 
 注意:使用此程序需要安装dill
 

@@ -69,7 +69,7 @@ def save_data(filename = "Employees.txt"):
 
 employees = []
 choice = 0
-global retval
+#global retval
 
 #if len(sys.argv) == 1:
 #    print("No filename specified - starting with empty data")

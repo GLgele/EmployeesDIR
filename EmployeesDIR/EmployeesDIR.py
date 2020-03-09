@@ -27,7 +27,7 @@ class Employee(object):
         elif retval == 2:
             self.number = input("请输入电话号码")
         elif retval == 3:
-            self.comment == input("请输入备注")
+            self.comment = input("请输入备注")
         elif retval == 4:
             self.email = input("请输入邮箱")
     

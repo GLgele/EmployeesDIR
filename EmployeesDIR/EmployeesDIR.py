@@ -20,11 +20,26 @@ class Employee(object):
         else:
             return 0
 
+        def setinfo(self):
+            global retval
+            if retval == 1:
+                self.name = input("请输入姓名")
+            elif retval == 2:
+                self.number = input("请输入电话号码")
+            elif retval == 3:
+                self.comment == input("请输入备注")
+            elif retval == 4:
+                self.email == input("请输入邮箱")
+
     def show(self):
         print("姓名:", self.name)
         print("电话号码:", self.number)
         print("备注:", self.comment)
         print("邮箱:", self.email)
+
+
+    #def showname(self):
+        #print(self.name,end = "")
 
 def load_data(filename = "Employees.txt"):
     try:
@@ -54,6 +69,7 @@ def save_data(filename = "Employees.txt"):
 
 employees = []
 choice = 0
+global retval
 
 #if len(sys.argv) == 1:
 #    print("No filename specified - starting with empty data")
@@ -62,7 +78,7 @@ choice = 0
 #    load_data(sys.argv[1])
 
 load_data()
-while choice != 7:
+while choice != 8:
     if sys.platform == "win32":
         os.system("cls")
     else:
@@ -76,7 +92,9 @@ while choice != 7:
     print(" 4. 查找员工")
     print(" 5. 保存员工目录")
     print(" 6. 加载员工目录")
-    print(" 7. 退出系统")
+    print(" 7. 修改员工信息")
+    print(" 8. 退出系统")
+
 
     choice = int(input("\n请选择操作: "))
 
@@ -115,17 +133,42 @@ while choice != 7:
         input("按回车继续...")
 
     elif choice == 5:
-        filename = input("\n输入文件名（将保存在同一目录）: ")
+        filename = input("\n输入文件名（将保存在同一目录）（建议保存为Employees.txt): ")
         #if filename == "" or filename == " ":
         #    save_data()
         save_data(filename)
 
     elif choice == 6:
-        filename = input("\n输入文件名（请把文件放在同一目录下）: ")
+        filename = input("\n输入文件名（请把文件放在同一目录下）（建议保存为Employees.txt): ")
         #if filename == "" or filename == " ":
         #    load_data()
         load_data(filename)
     elif choice == 7:
+        search_term = input("请输入员工姓名")
+        for x in range(0, len(employees)):
+            result = employees[x].find(search_term)
+            x = x+1
+        if result == 1:
+            print("员工序号：",x)
+            #print("员工姓名：")
+            #Employee.showname(x)
+            print("请选择操作：")
+            print(" 1. 修改姓名")
+            print(" 2. 修改电话")
+            print(" 3. 修改备注")
+            print(" 4. 修改邮箱")
+            print(" 5. 离开")
+            retval = int(input("请选择操作："))
+            if retval == 5:
+                input("\n按回车继续...")
+            elif retval <5:
+                employees[x-1].setinfo()
+            else:
+                print("错误的操作！")
+                input("\n按回车继续...")
+        elif result == 0:
+            print("\n没有找到含有该信息的员工！")
+    elif choice == 8:
         sys.exit(0)
     else:
         print("错误的操作！")

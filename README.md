@@ -10,10 +10,5 @@ EmployeesDIR on Python
 
 暂时现在这里结束吧~~~
 
-更新日志：
-
-2.1：
-添加了“邮件”
-
-2.0：
-汉化完成！
+更新日志搬到Wiki啦！
+链接：https://github.com/GLgele/EmployeesDIR/wiki/%E5%8E%86%E5%8F%B2

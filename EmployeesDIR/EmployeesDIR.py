@@ -93,7 +93,7 @@ while choice != 9:
     print(" 5. 保存员工目录")
     print(" 6. 加载员工目录")
     print(" 7. 修改员工信息")
-    print(" 8. 删除所有员工”）
+    print(" 8. 删除所有员工"）
     print(" 9. 退出系统")
 
 

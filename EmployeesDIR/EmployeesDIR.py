@@ -20,7 +20,7 @@ class Employee(object):
         else:
             return 0
 
-    def infoset(self):
+    def setinfo(self):
         global retval
         if retval == 1:
             self.name = input("请输入姓名")
@@ -163,7 +163,7 @@ while choice != 9:
             if retval == 5:
                 input("\n按回车继续...")
             elif retval <5:
-                employees[x-1].infoset()
+                employees[x-1].setinfo()
             else:
                 print("错误的操作！")
                 input("\n按回车继续...")

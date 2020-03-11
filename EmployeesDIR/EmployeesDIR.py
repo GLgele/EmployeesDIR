@@ -2,11 +2,14 @@ import sys, os
 import dill as pickle
 
 class Employee(object):
-    def __init__(self, passed_name, passed_number, passed_comment,passed_email):
+    def __init__(self, passed_name, passed_number, passed_comment,passed_email,passed_sex,passed_salary,passed_edu):
         self.name = passed_name
         self.number = passed_number
         self.comment = passed_comment
         self.email = passed_email
+        self.sex = passed_sex
+        self.salary = passed_salary
+        self.edu = passed_edu
 
     def find(self, search_term):
         if self.name.lower().find(search_term.lower()) != -1:
@@ -33,9 +36,13 @@ class Employee(object):
     
     def show(self):
         print("姓名:", self.name)
+        print("性别", self.sex)
         print("电话号码:", self.number)
         print("备注:", self.comment)
         print("邮箱:", self.email)
+        print("学历", self.edu)
+        print("薪水",self.salary)
+        
 
 
     #def showname(self):
@@ -107,10 +114,13 @@ while choice != 9:
 
     elif choice == 2:
         name = input("\n请输入员工名称: ")
+        sex = input("请输入员工性别")
         number = input("请输入员工电话: ")
         comment = input("请输入员工备注: ")
         email = input("请输入员工邮箱: ")
-        employees.append(Employee(name, number, comment, email))
+        edu = input("请输入员工学历")
+        salary = input("请输入员工薪水")
+        employees.append(Employee(name, sex,number, comment, email,edu,salary))
         input("\n员工已添加，按回车继续...")
 
     elif choice == 3:
@@ -122,8 +132,8 @@ while choice != 9:
             input("\n员工已删除，按回车继续...")
 
     elif choice == 4:
-        print("\n支持部分查询，如：输入au查找所有 名称 或 电话号码 或 备注 或 邮箱 含有au的人")
-        search_term = input("请输入员工名称 或 电话号码 或 备注 或 邮箱: ")
+        print("\n支持部分查询，如：输入au查找所有 名称 或 电话号码 或 备注 或 邮箱 等信息中含有au的人")
+        search_term = input("请输入员工名称 或 电话号码 或 备注 或 邮箱或其它信息: ")
         for x in range(0, len(employees)):
             result = employees[x].find(search_term)
             if result == 1:

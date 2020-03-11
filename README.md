@@ -1,7 +1,7 @@
 ﻿# EmployeesDIR
 EmployeesDIR on Python
 
-注意:如果编译出错请使用3.7 64bit试试，不要用Visual Studio编译！会出错！
+注意:如果编译出错请使用3.7 64bit试试
 Visual Studio打开会提示解决方案已卸载，需要自己重新加载一下。
 
 注意:使用此程序需要安装dill

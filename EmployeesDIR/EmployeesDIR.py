@@ -78,7 +78,7 @@ choice = 0
 #    load_data(sys.argv[1])
 
 load_data()
-while choice != 8:
+while choice != 9:
     if sys.platform == "win32":
         os.system("cls")
     else:
@@ -93,7 +93,8 @@ while choice != 8:
     print(" 5. 保存员工目录")
     print(" 6. 加载员工目录")
     print(" 7. 修改员工信息")
-    print(" 8. 退出系统")
+    print(" 8. 删除所有员工”）
+    print(" 9. 退出系统")
 
 
     choice = int(input("\n请选择操作: "))
@@ -169,6 +170,15 @@ while choice != 8:
         elif result == 0:
             print("\n没有找到含有该信息的员工！")
     elif choice == 8:
+        print("1. 确定\n 0. 返回")
+        i = input("确定吗？")
+        if i != 0:
+            for x in range(0, len(employees)):
+                del employees[x]
+            input("已删除，按回车继续...")
+        else:
+            input("按回车继续...")
+    elif choice == 9:
         sys.exit(0)
     else:
         print("错误的操作！")

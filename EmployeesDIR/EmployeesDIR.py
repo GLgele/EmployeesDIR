@@ -28,10 +28,12 @@ class Employee(object):
         if retval == 1:
             self.name = input("请输入姓名")
         elif retval == 2:
-            self.number = input("请输入电话号码")
+            self.sex = input()
         elif retval == 3:
-            self.comment = input("请输入备注")
+            self.number = input("请输入电话号码")
         elif retval == 4:
+            self.comment = input("请输入备注")
+        elif retval == 5:
             self.email = input("请输入邮箱")
     
     def show(self):

@@ -32,28 +32,28 @@ class Employee(object):
     def setinfo(self):
         global retval
         if retval == 1:
-            self.name = input("请输入姓名")
+            self.name = input("Please input name")
         elif retval == 2:
-            self.sex = input("请输入性别")
+            self.sex = input("Please input sex")
         elif retval == 3:
-            self.number = input("请输入电话号码")
+            self.number = input("please input number")
         elif retval == 4:
-            self.commet = input("请输入备注")
+            self.commet = input("please input commet")
         elif retval == 5:
-            self.email = input("请输入邮箱")
+            self.email = input("please input email")
         elif retval == 6:
-            self.edu = input("请输入学历")
+            self.edu = input("please input education")
         elif retval == 7:
-            self.salary = input("请输入薪水")
+            self.salary = input("Please input salary")
     
     def show(self):
-        print("姓名:", self.name)
-        print("性别", self.sex)
-        print("电话号码:", self.number)
-        print("备注:", self.comment)
-        print("邮箱:", self.email)
-        print("学历", self.edu)
-        print("薪水",self.salary)
+        print("Name:", self.name)
+        print("Sex", self.sex)
+        print("Number:", self.number)
+        print("Commet:", self.comment)
+        print("Eemail:", self.email)
+        print("Education", self.edu)
+        print("Salary",self.salary)
         
 
 
@@ -66,12 +66,12 @@ def load_data(filename = "Employees.txt"):
         file_data = open(filename, "rb")
         employees = pickle.load(file_data)
         file_data.close()
-        input("\n文件已加载，按回车继续...")
+        input("\nFile loaded.Hit enter to continue...")
 
     except OSError as err:
-        print("文件打开失败！错误代码:")
+        print("File couldn't be loaded:")
         print(err)
-        input("\n按回车继续...")
+        input("\nHit enter to continue...")
 
 def save_data(filename = "Employees.txt"):
     try:
@@ -79,12 +79,12 @@ def save_data(filename = "Employees.txt"):
         file_data = open(filename, "wb")
         pickle.dump(employees, file_data)
         file_data.close()
-        input("\n文件已保存，按回车继续...")
+        input("\nFile saved.Hit enter to continue...")
 
     except OSError as err:
-        print("文件打开失败！错误代码：")
+        print("File couldn't be opened：")
         print(err)
-        input("\n按回车继续...")
+        input("\nHit enter to continue...")
 
 global retval
 retval = 0
@@ -105,109 +105,109 @@ while choice != 9:
     else:
         os.system("clear")
 
-    print("========== 员工目录管理系统 2.1 ==========\n")
-    print("==========    汉化by：GL哥勒    ==========\n")
-    print(" 1. 查看所有的员工")
-    print(" 2. 添加员工")
-    print(" 3. 删除员工")
-    print(" 4. 查找员工")
-    print(" 5. 保存员工目录")
-    print(" 6. 加载员工目录")
-    print(" 7. 修改员工信息")
-    print(" 8. 删除所有员工")
-    print(" 9. 退出系统")
+    print("===== Employee Directory Manager 2.1 =====\n")
+    print("======= English language by GLgele =======\n")
+    print(" 1. List employees")
+    print(" 2. Add employee")
+    print(" 3. Delete employee")
+    print(" 4. Search employees")
+    print(" 5. Save data")
+    print(" 6. Load data")
+    print(" 7. Set employee's info")
+    print(" 8. Detele all Employees")
+    print(" 9. Quit")
 
 
-    choice = int(input("\n请选择操作: "))
+    choice = int(input("\nEnter your choice: "))
 
     if choice == 1:
         for x in range(0, len(employees)):
-            print("\n员工序号:", x + 1)
+            print("\nEmployee number:", x + 1)
             employees[x].show()
-        input("\n按回车继续...")
+        input("\nHit enter to continue...")
 
     elif choice == 2:
-        name = input("\n请输入员工名称: ")
-        sex = input("请输入员工性别")
-        number = input("请输入员工电话: ")
-        comment = input("请输入员工备注: ")
-        email = input("请输入员工邮箱: ")
-        edu = input("请输入员工学历")
-        salary = input("请输入员工薪水")
+        name = input("\nEnter employee name: ")
+        sex = input("Enter employee sex")
+        number = input("Enter employee number: ")
+        comment = input("Enter employee commet: ")
+        email = input("Enter employee email: ")
+        edu = input("Enter employee education")
+        salary = input("Enter employee salary")
         employees.append(Employee(name, sex,number, comment, email,edu,salary))
-        input("\n员工已添加，按回车继续...")
+        input("\nEmployee added.Hit enter to continue...")
 
     elif choice == 3:
-        number = int(input("\n请输入员工序号（输入0删除最后一个员工）: "))
+        number = int(input("\nEnter employee number to remove: "))
         if number > len(employees):
-            input("错误：没有这个序号！按回车继续...")
+            input("No such employee! Hit enter to continue...")
         else:
             del employees[number - 1]
-            input("\n员工已删除，按回车继续...")
+            input("\Employee removed.Hit enter to continue...")
 
     elif choice == 4:
-        print("\n支持部分查询，如：输入au查找所有 名称 或 电话号码 或 备注 或 邮箱 等信息中含有au的人")
-        search_term = input("请输入员工名称 或 电话号码 或 备注 或 邮箱或其它信息: ")
+        #print("\nEnter a name, number or comment or somthing else")
+        search_term = input("\nEnter a name, number or comment or somthing else: ")
         for x in range(0, len(employees)):
             result = employees[x].find(search_term)
             if result == 1:
-                print("\n员工序号:", x + 1)
+                print("\nEmployee number:", x + 1)
                 employees[x].show()
-            elif result == 0:
-                print("\n没有找到含有该信息的员工！")
-        input("按回车继续...")
+            #elif result == 0:
+            #   print("\nHit enter to continue...")
+        input("Hit enter to continue...")
 
     elif choice == 5:
-        filename = input("\n输入文件名（将保存在同一目录）（建议保存为Employees.txt): ")
+        filename = input("\nEnter a filename: ")
         #if filename == "" or filename == " ":
         #    save_data()
         save_data(filename)
 
     elif choice == 6:
-        filename = input("\n输入文件名（请把文件放在同一目录下）（建议保存为Employees.txt): ")
+        filename = input("\nEnter a filename: ")
         #if filename == "" or filename == " ":
         #    load_data()
         load_data(filename)
     elif choice == 7:
-        search_term = input("请输入员工姓名")
+        search_term = input("Please input employee's name")
         for x in range(0, len(employees)):
             result = employees[x].find(search_term)
             x = x+1
         if result == 1:
-            print("员工序号：",x)
+            print("Employee number：",x)
             #print("员工姓名：")
             #Employee.showname(x)
-            print("请选择操作：")
-            print(" 1. 修改姓名")
-            print(" 2. 修改性别")
-            print(" 3. 修改电话")
-            print(" 4. 修改备注")
-            print(" 5. 修改邮箱")
-            print(" 6. 修改学历")
-            print(" 7. 修改薪水")
-            print(" 8. 离开")
-            retval = int(input("请选择操作："))
+            print("Choices：")
+            print(" 1. Reset name")
+            print(" 2. Reset sex")
+            print(" 3. Reset number")
+            print(" 4. Reset commet")
+            print(" 5. Reset email")
+            print(" 6. Reset education")
+            print(" 7. Reset salary")
+            print(" 8. Quit")
+            retval = int(input("Enter your choice："))
             if retval == 8:
-                input("\n按回车继续...")
+                input("\nHit enter to countinue...")
             elif retval <8:
                 employees[x-1].setinfo()
             else:
-                print("错误的操作！")
-                input("\n按回车继续...")
+                print("Wrong choice!")
+                input("\nHit enter to countinue...")
         elif result == 0:
-            print("\n没有找到含有该信息的员工！")
+            print("\nNo such employee!")
     elif choice == 8:
-        print("1. 确定\n 0. 返回")
-        i = input("确定吗？")
+        print("1. Yes\n 0. NO")
+        i = input("Are you sure?")
         if i != 0:
             for x in range(0, len(employees)):
                 del employees[x]
-            input("已删除，按回车继续...")
+            input("Emloyees deteled.Hit enter to coutinue...")
         else:
-            input("按回车继续...")
+            input("Hit enter to conitnue...")
     elif choice == 9:
         sys.exit(0)
     else:
-        print("错误的操作！")
-        input("\n按回车继续...")
+        print("Wrong choice!")
+        input("\nHit enter to cotinue...")
         continue

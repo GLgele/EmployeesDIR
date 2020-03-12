@@ -32,28 +32,28 @@ class Employee(object):
     def setinfo(self):
         global retval
         if retval == 1:
-            self.name = input("请输入姓名")
+            self.name = input("请输入姓名:")
         elif retval == 2:
-            self.sex = input("请输入性别")
+            self.sex = input("请输入性别:")
         elif retval == 3:
-            self.number = input("请输入电话号码")
+            self.number = input("请输入电话号码:")
         elif retval == 4:
-            self.commet = input("请输入备注")
+            self.commet = input("请输入备注:")
         elif retval == 5:
-            self.email = input("请输入邮箱")
+            self.email = input("请输入邮箱:")
         elif retval == 6:
-            self.edu = input("请输入学历")
+            self.edu = input("请输入学历:")
         elif retval == 7:
-            self.salary = input("请输入薪水")
+            self.salary = input("请输入薪水:")
     
     def show(self):
         print("姓名:", self.name)
-        print("性别", self.sex)
+        print("性别:", self.sex)
         print("电话号码:", self.number)
         print("备注:", self.comment)
         print("邮箱:", self.email)
-        print("学历", self.edu)
-        print("薪水",self.salary)
+        print("学历:", self.edu)
+        print("薪水:",self.salary)
         
 
 
@@ -128,13 +128,13 @@ while choice != 9:
 
     elif choice == 2:
         name = input("\n请输入员工名称: ")
-        sex = input("请输入员工性别")
+        sex = input("请输入员工性别:")
         number = input("请输入员工电话: ")
         comment = input("请输入员工备注: ")
         email = input("请输入员工邮箱: ")
-        edu = input("请输入员工学历")
-        salary = input("请输入员工薪水")
-        employees.append(Employee(name, sex,number, comment, email,edu,salary))
+        edu = input("请输入员工学历:")
+        salary = input("请输入员工薪水:")
+        employees.append(Employee(name,sex,number,comment,email,edu,salary))
         input("\n员工已添加，按回车继续...")
 
     elif choice == 3:

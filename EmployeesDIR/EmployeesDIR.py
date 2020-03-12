@@ -98,7 +98,7 @@ choice = 0
 #else:
 #    load_data(sys.argv[1])
 
-load_data()
+#load_data()
 while choice != 9:
     if sys.platform == "win32":
         os.system("cls")

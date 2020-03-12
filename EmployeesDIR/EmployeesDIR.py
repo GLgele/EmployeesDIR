@@ -20,6 +20,12 @@ class Employee(object):
             return 1
         elif self.email.lower().find(search_term.lower()) != -1:
             return 1
+        elif self.sex.lower().find(search_term.lower()) != -1:
+            return 1
+        elif self.salary.lower().find(search_term.lower()) != -1:
+            return 1
+        elif self.edu.lower().find(seatch_term.lower()) != -1:
+            return 1
         else:
             return 0
 
@@ -28,13 +34,17 @@ class Employee(object):
         if retval == 1:
             self.name = input("请输入姓名")
         elif retval == 2:
-            self.sex = input()
+            self.sex = input("请输入性别")
         elif retval == 3:
             self.number = input("请输入电话号码")
         elif retval == 4:
-            self.comment = input("请输入备注")
+            self.commet = input("请输入备注")
         elif retval == 5:
             self.email = input("请输入邮箱")
+        elif retval == 6:
+            self.edu = input("请输入学历")
+        elif retval == 7:
+            self.salary = input("请输入薪水")
     
     def show(self):
         print("姓名:", self.name)
@@ -76,6 +86,8 @@ def save_data(filename = "Employees.txt"):
         print(err)
         input("\n按回车继续...")
 
+global retval
+retval = 0
 employees = []
 choice = 0
 #global retval
@@ -167,14 +179,17 @@ while choice != 9:
             #Employee.showname(x)
             print("请选择操作：")
             print(" 1. 修改姓名")
-            print(" 2. 修改电话")
-            print(" 3. 修改备注")
-            print(" 4. 修改邮箱")
-            print(" 5. 离开")
+            print(" 2. 修改性别")
+            print(" 3. 修改电话")
+            print(" 4. 修改备注")
+            print(" 5. 修改邮箱")
+            print(" 6. 修改学历")
+            print(" 7. 修改薪水")
+            print(" 8. 离开")
             retval = int(input("请选择操作："))
-            if retval == 5:
+            if retval == 8:
                 input("\n按回车继续...")
-            elif retval <5:
+            elif retval <8:
                 employees[x-1].setinfo()
             else:
                 print("错误的操作！")

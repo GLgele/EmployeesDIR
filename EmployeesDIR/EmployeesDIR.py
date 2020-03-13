@@ -34,7 +34,7 @@ class Employee(object):
         if retval == 1:
             self.name = input("请输入姓名:")
         elif retval == 2:
-            self.sex = input("请输入性别:")
+            self.sex = input("请输入性别: ")
         elif retval == 3:
             self.number = input("请输入电话号码:")
         elif retval == 4:
@@ -42,9 +42,9 @@ class Employee(object):
         elif retval == 5:
             self.email = input("请输入邮箱:")
         elif retval == 6:
-            self.edu = input("请输入学历:")
+            self.edu = input("请输入学历: ")
         elif retval == 7:
-            self.salary = input("请输入薪水:")
+            self.salary = input("请输入薪水: ")
     
     def show(self):
         print("姓名:", self.name)

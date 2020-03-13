@@ -102,7 +102,7 @@ choice = 0
 
 try：
     load_data（）
-    
+
 while choice != 9:
     if sys.platform == "win32":
         os.system("cls")

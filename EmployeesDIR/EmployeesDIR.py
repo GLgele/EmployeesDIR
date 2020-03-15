@@ -2,7 +2,9 @@ import sys, os
 import dill as pickle
 
 
+#类定义
 class Employee(object):
+    #初始化
     def __init__(self, passed_name, passed_number, passed_comment,passed_email,passed_sex,passed_salary,passed_edu):
         self.name = passed_name
         self.number = passed_number
@@ -12,6 +14,7 @@ class Employee(object):
         self.salary = passed_salary
         self.edu = passed_edu
 
+    #寻找
     def find(self, search_term):
         if self.name.lower().find(search_term.lower()) != -1:
             return 1
@@ -30,6 +33,7 @@ class Employee(object):
         else:
             return 0
 
+    #信息修改
     def setinfo(self):
         global retval
         if retval == 1:
@@ -47,6 +51,7 @@ class Employee(object):
         elif retval == 7:
             self.salary = input("请输入薪水: ")
     
+    #员工显示
     def show(self):
         print("姓名:", self.name)
         print("性别:", self.sex)
@@ -61,6 +66,7 @@ class Employee(object):
     #def showname(self):
         #print(self.name,end = "")
 
+#信息导入
 def load_data(filename = "Employees.txt"):
     try:
         global employees
@@ -74,6 +80,7 @@ def load_data(filename = "Employees.txt"):
         print(err)
         input("\n按回车继续...")
 
+#信息导出
 def save_data(filename = "Employees.txt"):
     try:
         global employees
@@ -102,12 +109,13 @@ choice = 0
 #load_data()
 
 
-while choice != 9:
-    if sys.platform == "win32":
+while choice != 9:                  
+    if sys.platform == "win32":     #清屏
         os.system("cls")
     else:
         os.system("clear")
 
+    #界面显示
     print("========== 员工目录管理系统 2.1 ==========\n")
     print("==========    汉化by：GL哥勒    ==========\n")
     print(" 1. 查看所有的员工")

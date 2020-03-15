@@ -1,9 +1,6 @@
 import sys, os
 import dill as pickle
-import openpyxl
 
-wb = openpyxl.Workbook()
-ws = wb.active
 
 class Employee(object):
     def __init__(self, passed_name, passed_number, passed_comment,passed_email,passed_sex,passed_salary,passed_edu):
@@ -91,8 +88,6 @@ def save_data(filename = "Employees.txt"):
         input("\n按回车继续...")
 
 global retval
-global ws
-global wb
 retval = 0
 employees = []
 choice = 0

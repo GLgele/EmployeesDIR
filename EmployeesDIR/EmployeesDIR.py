@@ -1,5 +1,6 @@
 import sys, os
 import dill as pickle
+import openpyxl
 
 class Employee(object):
     def __init__(self, passed_name, passed_number, passed_comment,passed_email,passed_sex,passed_salary,passed_edu):

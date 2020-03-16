@@ -1,7 +1,10 @@
 import sys, os
 import dill as pickle
 
+# "Employee" Class definition
 class Employee(object):
+    
+#init
     def __init__(self, passed_name, passed_number, passed_comment,passed_email,passed_sex,passed_salary,passed_edu):
         self.name = passed_name
         self.number = passed_number
@@ -11,6 +14,7 @@ class Employee(object):
         self.salary = passed_salary
         self.edu = passed_edu
 
+# "FIND" Function
     def find(self, search_term):
         if self.name.lower().find(search_term.lower()) != -1:
             return 1
@@ -29,23 +33,25 @@ class Employee(object):
         else:
             return 0
 
+# "INFOSET" Function
     def setinfo(self):
         global retval
         if retval == 1:
-            self.name = input("Please input name")
+            self.name = input("Please input name: ")
         elif retval == 2:
-            self.sex = input("Please input sex")
+            self.sex = input("Please input sex: ")
         elif retval == 3:
-            self.number = input("please input number")
+            self.number = input("Please input number: ")
         elif retval == 4:
-            self.commet = input("please input commet")
+            self.commet = input("Please input commet: ")
         elif retval == 5:
-            self.email = input("please input email")
+            self.email = input("Please input email: ")
         elif retval == 6:
-            self.edu = input("please input education")
+            self.edu = input("Please input education: ")
         elif retval == 7:
-            self.salary = input("Please input salary")
+            self.salary = input("Please input salary: ")
     
+# "SHOW EMPLOYEES" Function
     def show(self):
         print("Name:", self.name)
         print("Sex", self.sex)
@@ -60,6 +66,7 @@ class Employee(object):
     #def showname(self):
         #print(self.name,end = "")
 
+# "FILE LOAD" Function
 def load_data(filename = "Employees.txt"):
     try:
         global employees
@@ -73,6 +80,7 @@ def load_data(filename = "Employees.txt"):
         print(err)
         input("\nHit enter to continue...")
 
+# "FILE SAVE" Function
 def save_data(filename = "Employees.txt"):
     try:
         global employees
@@ -105,7 +113,7 @@ while choice != 9:
     else:
         os.system("clear")
 
-    print("===== Employee Directory Manager 2.1 =====\n")
+    print("===== Employee Directory Manager 2.2 =====\n")
     print("======= English language by GLgele =======\n")
     print(" 1. List employees")
     print(" 2. Add employee")

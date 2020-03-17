@@ -5,7 +5,7 @@ Note: if compilation error, please use 3.7 64bit to try
 
 When visual studio opens, you will be prompted that the solution has been uninstalled. You need to reload it yourself.
 
-Note: dill needs to be installed to use this program
+Note: dill and easygui needs to be installed to use this program
 
 Instructions for use:
 

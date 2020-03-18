@@ -263,6 +263,7 @@ while choice != 9:
                 #print("\n员工序号:", x + 1)
                 #employees[x].show()
                 gui.msgbox(employees[x].__dict__,"查找员工","确认")
+                continue
             elif result == 0:
                 gui.msgbox("\n没有找到含有该信息的员工！","查找员工","确认")
         #input("按回车继续...")

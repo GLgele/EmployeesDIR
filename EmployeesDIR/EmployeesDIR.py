@@ -226,8 +226,8 @@ while choice != 9:
         input("\n按回车继续...")
         continue
 
-'''
 
+'''
 while choice != 9:
     choice = gui.indexbox("请选择操作","EmployeesDIR - 2.3",("查看所有员工","添加员工","删除员工","查找员工","保存员工目录","读取员工目录","修改员工信息","删除所有员工","退出系统")) + 1
     if choice == 1:

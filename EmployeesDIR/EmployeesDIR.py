@@ -314,7 +314,8 @@ while choice != 9:
         i = gui.indexbox("确定吗？","员工信息修改",("确认","返回"))
         if i == 0:
             for x in range(0, len(employees)):
-                del employees[x]
+                del employees[x-1]
+                x = x + 1
             gui.msgbox("已删除","员工信息修改","确认")
         #else:
             #input("按回车继续...")

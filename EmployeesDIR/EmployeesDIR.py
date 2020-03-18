@@ -6,14 +6,14 @@ import easygui as gui
 class Employee(object):
     #__slots__ = ["name","number","comment","email","sex","salary","edu"]
     #初始化
-    def __init__(self, passed_name, passed_number, passed_comment,passed_email,passed_sex,passed_salary,passed_edu):
+    def __init__(self, passed_name,passed_sex,passed_number, passed_comment,passed_email,passed_edu,passed_salary):
         self.name = passed_name
+        self.sex = passed_sex
         self.number = passed_number
         self.comment = passed_comment
         self.email = passed_email
-        self.sex = passed_sex
-        self.salary = passed_salary
         self.edu = passed_edu
+        self.salary = passed_salary
 
     #寻找
     def find(self, search_term):

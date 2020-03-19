@@ -307,8 +307,8 @@ while choice != 9:
             #else:
             #    print("错误的操作！")
             #    input("\n按回车继续...")
-        elif result == 0:
-            gui.msgbox("没有找到含有该信息的员工！","员工信息修改","确认")
+        #elif result == 0:
+            #gui.msgbox("没有找到含有该信息的员工！","员工信息修改","确认")
     elif choice == 8:
         #print("1. 确定\n 0. 返回")
         #i = input("确定吗？")

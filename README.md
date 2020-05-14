@@ -1,5 +1,5 @@
 # EmployeesDIR
-EmployeesDIR on Python
+EmployeesDIR on Python [![Build Status](https://travis-ci.org/gabime/spdlog.svg?branch=v1.x)](https://travis-ci.org/gabime/spdlog)&nbsp; [![Build status](https://ci.appveyor.com/api/projects/status/d2jnxclg20vd0o50?svg=true)](https://ci.appveyor.com/project/gabime/spdlog) [![Release](https://img.shields.io/github/release/gabime/spdlog.svg)](https://github.com/gabime/spdlog/releases/latest)
 
 注意:如果编译出错请使用3.7 64bit试试 Visual Studio打开会提示解决方案已卸载，需要自己重新加载一下。
 

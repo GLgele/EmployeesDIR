@@ -1,5 +1,6 @@
 # EmployeesDIR
-EmployeesDIR on Python  [![Release](https://img.shields.io/github/release/gabime/spdlog.svg)](https://github.com/GLgele/EmployeesDIR/releases/latest)
+EmployeesDIR on Python  
+(https://github.com/GLgele/EmployeesDIR/releases/latest)
 
 注意:如果编译出错请使用3.7 64bit试试 Visual Studio打开会提示解决方案已卸载，需要自己重新加载一下。
 

@@ -111,6 +111,8 @@ choice = 0
 
 #load_data()
 
+#请跳转至233行
+
 '''
 while choice != 9:                  
     if sys.platform == "win32":     #清屏

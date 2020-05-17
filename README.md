@@ -1,5 +1,6 @@
-﻿# EmployeesDIR
-EmployeesDIR on Python
+# EmployeesDIR
+EmployeesDIR on Python  
+(https://github.com/GLgele/EmployeesDIR/releases/latest)
 
 注意:如果编译出错请使用3.7 64bit试试 Visual Studio打开会提示解决方案已卸载，需要自己重新加载一下。
 
@@ -14,3 +15,5 @@ EmployeesDIR on Python
 暂时现在这里结束吧~~~
 
 更新日志搬到Wiki啦！ 链接：https://github.com/GLgele/EmployeesDIR/wiki/%E5%8E%86%E5%8F%B2
+
+English:https://github.com/GLgele/EmployeesDIR/tree/English

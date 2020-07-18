@@ -228,8 +228,8 @@ while choice != 9:
         input("\n按回车继续...")
         continue
 
-
 '''
+
 while choice != 9:
     choice = gui.indexbox("请选择操作","EmployeesDIR - 2.3",("查看所有员工","添加员工","删除员工","查找员工","保存员工目录","读取员工目录","修改员工信息","删除所有员工","退出系统")) + 1
     if choice == 1:
@@ -278,8 +278,8 @@ while choice != 9:
         save_data(filename)
 
     elif choice == 6:
-        filename = gui.fileopenbox("请选择要加载的文件","文件加载","","*.txt")
-        #filename = input("\n输入文件名（请把文件放在同一目录下）（建议保存为Employees.txt): ")
+        filename = gui.fileopenbox("请选择要加载的文件","文件加载","","*.employees")
+        #filename = input("\n输入文件名（请把文件放在同一目录下）（建议保存为Employees.employees): ")
         #if filename == "" or filename == " ":
         #    load_data()
         load_data(filename)

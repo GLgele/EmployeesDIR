@@ -1,4 +1,4 @@
-import sys, os
+﻿import sys, os
 import dill as pickle
 
 # "Employee" Class definition
@@ -54,12 +54,12 @@ class Employee(object):
 # "SHOW EMPLOYEES" Function
     def show(self):
         print("Name:", self.name)
-        print("Sex", self.sex)
+        print("Sex:", self.sex)
         print("Number:", self.number)
         print("Commet:", self.comment)
         print("Eemail:", self.email)
-        print("Education", self.edu)
-        print("Salary",self.salary)
+        print("Education:", self.edu)
+        print("Salary:",self.salary)
         
 
 
@@ -106,7 +106,7 @@ choice = 0
 #else:
 #    load_data(sys.argv[1])
 
-load_data()
+#load_data()
 while choice != 9:
     if sys.platform == "win32":
         os.system("cls")
@@ -136,12 +136,12 @@ while choice != 9:
 
     elif choice == 2:
         name = input("\nEnter employee name: ")
-        sex = input("Enter employee sex")
+        sex = input("Enter employee sex: ")
         number = input("Enter employee number: ")
         comment = input("Enter employee commet: ")
         email = input("Enter employee email: ")
-        edu = input("Enter employee education")
-        salary = input("Enter employee salary")
+        edu = input("Enter employee education: ")
+        salary = input("Enter employee salary: ")
         employees.append(Employee(name, sex,number, comment, email,edu,salary))
         input("\nEmployee added.Hit enter to continue...")
 

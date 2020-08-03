@@ -4,7 +4,9 @@ import easygui as gui
 
 #类定义
 class Employee(object):
+
     #__slots__ = ["name","number","comment","email","sex","salary","edu"]
+    
     #初始化
     def __init__(self, passed_name,passed_sex,passed_number, passed_comment,passed_email,passed_edu,passed_salary):
         self.name = passed_name

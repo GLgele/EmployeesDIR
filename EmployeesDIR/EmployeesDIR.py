@@ -82,7 +82,7 @@ def load_data(filename = "Employees.txt"):
         #print("文件打开失败！错误代码:")
         #print(err)
         #input("\n按回车继续...")
-        gui.exceptionbox()
+        gui.exceptionbox(err,title)
 
 #信息导出
 def save_data(filename = "Employees.txt"):
@@ -97,12 +97,16 @@ def save_data(filename = "Employees.txt"):
         #print("文件打开失败！错误代码：")
         #print(err)
         #input("\n按回车继续...")
-        gui.exceptionbox()
+        gui.exceptionbox(err,title)
 
 global retval
 retval = 0
 employees = []
 choice = 0
+global filename
+global title
+title = "EmployeesDIR - 2.3"
+filename = ""
 #global retval
 
 #if len(sys.argv) == 1:
@@ -113,7 +117,7 @@ choice = 0
 
 #load_data()
 
-#请跳转至233行
+###请跳转至233行
 
 '''
 while choice != 9:                  
@@ -233,7 +237,7 @@ while choice != 9:
 '''
 
 while choice != 9:
-    choice = gui.indexbox("请选择操作","EmployeesDIR - 2.3",("查看所有员工","添加员工","删除员工","查找员工","保存员工目录","读取员工目录","修改员工信息","删除所有员工","退出系统")) + 1
+    choice = gui.indexbox("请选择操作",title,("查看所有员工","添加员工","删除员工","查找员工","保存员工目录","读取员工目录","修改员工信息","删除所有员工","退出系统")) + 1
     if choice == 1:
         for x in range(0, len(employees)):
             gui.msgbox(employees[x].__dict__,"查看员工","确认")
@@ -249,6 +253,12 @@ while choice != 9:
         edu = gui.enterbox("请输入员工学历: ","新增员工")
         salary = gui.enterbox("请输入员工薪水: ","新增员工")
         employees.append(Employee(name,sex,number,comment,email,edu,salary))
+        yn = gui.boolbox("保存到文件吗?",title,("是","否"))
+        if yn:
+            if filename == "":
+                filename = gui.fileopenbox("请选择要加载的文件","文件加载","","*.employees")
+        else:
+            save_data()
         #input("\n员工已添加，按回车继续...")
 
     elif choice == 3:
@@ -274,7 +284,7 @@ while choice != 9:
 
     elif choice == 5:
         #filename = input("\n输入文件名（将保存在同一目录）（建议保存为Employees.txt): ")
-        filename = gui.filesavebox("请选择要保存的文件","文件保存","","*.txt")
+        filename = gui.filesavebox("请选择要保存的文件","文件保存","","*.employees")
         #if filename == "" or filename == " ":
         #    save_data()
         save_data(filename)

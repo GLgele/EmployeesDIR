@@ -4,8 +4,8 @@ EmployeesDIR on Python
 
 *** 本branch为3.0 Beta版本
 ### 注意
-*** 本程序使用Python3.7编译 <br>
-*** 使用此程序需要安装dill <br>
+** 本程序使用Python3.7编译 ** <br>
+** 使用此程序需要安装dill ** <br>
 `pip3 install dill`
 
 员工目录：帮助你更好的管理员工名单

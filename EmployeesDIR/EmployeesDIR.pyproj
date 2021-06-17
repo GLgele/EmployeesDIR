@@ -26,6 +26,7 @@
   <ItemGroup>
     <Content Include="config.ini" />
     <Content Include="language\en_us.json" />
+    <Content Include="language\zh_cn.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="language\" />

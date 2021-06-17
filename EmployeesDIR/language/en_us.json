@@ -1,6 +1,8 @@
 [
   {
     "lang": "en_us",
-    "UserLogin": "UserLogin"
+    "UserLogin": "User Login",
+    "User:": "User:",
+    "Password:": "Password:" 
   }
 ]

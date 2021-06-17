@@ -74,7 +74,7 @@ def load_data(filename = "Employees.txt"):
         file_data.close()
         #gui.msgbox("文件已加载","文件加载","确认")
 
-    except OSError as err:
+    except BaseException as err:
         #gui.exceptionbox(err,title)
         pass
 
@@ -86,9 +86,18 @@ def save_data(filename = "Employees.txt"):
         file_data.close()
         #gui.msgbox("文件已保存","文件保存","确认")
 
-    except OSError as err:
+    except BaseException as err:
         #gui.exceptionbox(err,title)
         pass
+
+#翻译
+def trans(stri):
+    temps = ""
+    try:
+        temps = langList[0][str(stri)]
+    except BaseException:
+        temps = stri
+    return temps
 
 global employees
 global title
@@ -101,12 +110,15 @@ retval = 0
 conf = configparser.ConfigParser()
 conf.read("config.ini",encoding="utf-8")
 tlang = conf.items("language")
+tlang = tlang[0][1]
 try:
     langFile = open("language/"+str(tlang)+".json","r")
     lang = "language/"+str(tlang)+".json"
     langFile.close()
 except BaseException as err:
     lang = "language/en_us.json"
+    print("Error:Unknown language file!\n",err)
+print("Using language:",tlang)
 
 langFile = open(lang,"r")
 langList = json.load(langFile)
@@ -117,10 +129,10 @@ login_win.title(title)
 login_win.geometry("400x200")
 user = tkinter.StringVar()
 pwd = tkinter.StringVar()
-login_label = tkinter.Label(login_win,text = "User Login").grid(column = 1,row = 1)
-user_label = tkinter.Label(login_win,text = "User:").grid(column = 1,row = 2)
+login_label = tkinter.Label(login_win,text = trans("UserLogin")).grid(column = 1,row = 1)
+user_label = tkinter.Label(login_win,text = trans("User:")).grid(column = 1,row = 2)
 user_entry = tkinter.Entry(login_win,width = 24,textvariable = user).grid(column = 2,row = 2)
-pwd_label = tkinter.Label(login_win,text = "Password:").grid(column = 1,row = 3)
+pwd_label = tkinter.Label(login_win,text = trans("Password:")).grid(column = 1,row = 3)
 pwd_entry = tkinter.Entry(login_win,width = 24,textvariable = pwd,show = '*').grid(column = 2,row = 3)
 
 

@@ -2,7 +2,7 @@
 EmployeesDIR on Python  
 (https://github.com/GLgele/EmployeesDIR/releases/latest)
 
-[Beta](https://github.com/GLgele/EmployeesDIR/tree/Beta)
+[Beta Version](https://github.com/GLgele/EmployeesDIR/tree/Beta)
 
 注意:本程序使用Python3.7编译 <br>
 Visual Studio打开会提示解决方案已卸载，需要自己重新加载一下。

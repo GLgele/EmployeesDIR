@@ -99,6 +99,12 @@ def trans(stri):
         temps = stri
     return temps
 
+def safeExit():
+    sys.exit(0)
+
+def login():
+    pass
+
 global employees
 global title
 global retval
@@ -127,17 +133,19 @@ langFile.close()
 login_win = tkinter.Tk()
 login_win.title(title)
 login_win.geometry("400x200")
+global user
+global pwd
 user = tkinter.StringVar()
 pwd = tkinter.StringVar()
+emptyTabel1 = tkinter.Label(login_win,text = "\n             ").grid(column = 0,row = 0)
 login_label = tkinter.Label(login_win,text = trans("UserLogin")).grid(column = 1,row = 1)
 user_label = tkinter.Label(login_win,text = trans("User:")).grid(column = 1,row = 2)
 user_entry = tkinter.Entry(login_win,width = 24,textvariable = user).grid(column = 2,row = 2)
 pwd_label = tkinter.Label(login_win,text = trans("Password:")).grid(column = 1,row = 3)
 pwd_entry = tkinter.Entry(login_win,width = 24,textvariable = pwd,show = '*').grid(column = 2,row = 3)
-
-
-
-
+emptyTabel2 = tkinter.Label(login_win,text = "\n\n\n").grid(column = 0,row = 4)
+cancelButton = tkinter.Button(login_win,text = trans("Cancel"),command = safeExit).grid(column = 1,row = 4)
+loginButton = tkinter.Button(login_win,text = trans("Login"),command = login).grid(column = 2,row = 4)
 
 login_win.mainloop()
 

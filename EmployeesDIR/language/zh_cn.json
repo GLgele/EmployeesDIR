@@ -5,6 +5,7 @@
     "User:": "用户名:",
     "Password:": "密码:",
     "Cancel": "取消",
-    "Login": "登录"
+    "Login": "登录",
+    "Wrong username or password!": "错误的用户名或密码！"
   }
 ]

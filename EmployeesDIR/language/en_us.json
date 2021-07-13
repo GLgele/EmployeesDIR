@@ -5,6 +5,7 @@
     "User:": "User:",
     "Password:": "Password:",
     "Cancel": "Cancel",
-    "Login": "Login"
+    "Login": "Login",
+    "Wrong username or password!": "Wrong username or password!"
   }
 ]

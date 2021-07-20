@@ -21,6 +21,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="easygui\about.py" />
+    <Compile Include="easygui\base_boxes.py" />
+    <Compile Include="easygui\button_box.py" />
+    <Compile Include="easygui\choice_box.py" />
+    <Compile Include="easygui\demo.py" />
+    <Compile Include="easygui\derived_boxes.py" />
+    <Compile Include="easygui\diropen_box.py" />
+    <Compile Include="easygui\egstore.py" />
+    <Compile Include="easygui\fileboxsetup.py" />
+    <Compile Include="easygui\fileopen_box.py" />
+    <Compile Include="easygui\filesave_box.py" />
+    <Compile Include="easygui\fillable_box.py" />
+    <Compile Include="easygui\global_state.py" />
+    <Compile Include="easygui\multi_fillable_box.py" />
+    <Compile Include="easygui\text_box.py" />
+    <Compile Include="easygui\utils.py" />
+    <Compile Include="easygui\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="EmployeesDIR.py" />
     <Compile Include="general.py">
       <SubType>Code</SubType>
@@ -28,16 +47,19 @@
     <Compile Include="login.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="root.py" />
     <Compile Include="__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.ini" />
+    <Content Include="easygui\LICENSE" />
     <Content Include="language\en_us.json" />
     <Content Include="language\zh_cn.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="easygui\" />
     <Folder Include="language\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

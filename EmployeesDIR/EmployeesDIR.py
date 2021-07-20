@@ -2,10 +2,12 @@ import sys,os
 
 from general import *
 from login import *
+from root import *
 
 logInit()
-login_window()
-exceptionBox("test")
+#login_window()
+#exceptionBox("test")
+root_window()
 
 '''
 global root_win

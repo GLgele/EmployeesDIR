@@ -5,6 +5,10 @@ import json
 import sys,os
 import time
 
+from easygui.fileopen_box import fileopenbox
+from easygui.filesave_box import filesavebox
+from easygui.derived_boxes import ynbox
+
 class Employee(object):
 
     #初始化
@@ -66,45 +70,67 @@ class Employee(object):
         print("学历:", self.edu)
         print("薪水:",self.salary)
         
+def msgBox(msg):
+    msg_win = tkinter.Tk()
+    msg_win.title(title)
+    msg_win.geometry("200x100")
+    msg_label = tkinter.Label(msg_win,text="    "+msg+"\n").grid(column=1,row=1)
+    msg_button = tkinter.Button(msg_win,text="OK",command=msg_win.destroy).grid(column=2,row=2)
+    msg_win.mainloop()
 
 #信息导入
-def load_data(filename = "Employees.txt"):
+def load_data(filename="Employees.employeesdir"):
+    langList = transInit()
     try:
         file_data = open(filename, "rb")
         employees = pickle.load(file_data)
         file_data.close()
         #gui.msgbox("文件已加载","文件加载","确认")
-
+        msgBox(trans("File loaded",langList))
     except BaseException as err:
         #gui.exceptionbox(err,title)
         exceptionBox(err)
 
 #信息导出
-def save_data(filename = "Employees.txt"):
+def save_data(filename="Employees.employeesdir"):
+    langList = transInit()
     try:
         file_data = open(filename, "wb")
         pickle.dump(employees, file_data)
         file_data.close()
         #gui.msgbox("文件已保存","文件保存","确认")
-
+        msgBox(trans("File saved",langList))
     except BaseException as err:
         #gui.exceptionbox(err,title)
         exceptionBox(err)
+
+def save_data_window():
+    langList = transInit()
+    filename = filesavebox(trans("Save",langList),title,sys.path[4]+"\\employees.employeesdir","\\*.employeesdir")
+    logOut("File saving:",filename)
+    save_data(filename)
+
+def load_data_window():
+    langList = transInit()
+    filename = fileopenbox(trans("Load",langList),title,sys.path[4]+"\\employees.employeesdir","\\*.employeesdir")
+    logOut("File loading:",filename)
+    load_data(filename)
 
 def exceptionBox(msg):
     exp_win = tkinter.Tk()
     exp_win.title(title)
     exp_win.geometry("400x600")
     exp_text = tkinter.Text(exp_win,width=60,height=35)
-    exp_text.insert(tkinter.INSERT,"Error!Here's the report:\n"+msg)
+    exp_text.insert(tkinter.INSERT,"Error!Here's the report:\n"+str(msg))
     exp_text.grid(column=1,row=1)
+    #exp_label = tkinter.Label(exp_win,text="Error!Here's the report:\n"+str(msg)).grid(column=1,row=1)
     ok_button = tkinter.Button(exp_win,text="OK",command=exp_win.destroy)
     ok_button.grid(column=1,row=3)
     exp_win.mainloop()
 
 def logInit():
     try:
-        log = open("latest.log","w")
+        log = open("logs/latest.log","w")
         log.close()
     except BaseException as err:
         print(ntime,"Can't init log functions!",err)
@@ -162,9 +188,15 @@ def safeExit():
     logOut("Safe exit.")
     sys.exit(0)
 
+def onClosing():
+    if ynbox("Do you want to save?",title):
+        save_data_window()
+    else:
+        safeExit()
+
 global employees
 global title
-global retval
+#global retval
 #global langList
 '''
 global user

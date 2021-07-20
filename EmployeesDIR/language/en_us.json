@@ -6,6 +6,12 @@
     "Password:": "Password:",
     "Cancel": "Cancel",
     "Login": "Login",
-    "Wrong username or password!": "Wrong username or password!"
+    "Wrong username or password!": "Wrong username or password!",
+    "File": "File",
+    "Save": "Save",
+    "Load": "Load",
+    "Exit": "Exit",
+    "File loaded": "File loaded.",
+    "File saved": "File saved."
   }
 ]

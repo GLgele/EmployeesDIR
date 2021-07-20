@@ -6,6 +6,12 @@
     "Password:": "密码:",
     "Cancel": "取消",
     "Login": "登录",
-    "Wrong username or password!": "错误的用户名或密码！"
+    "Wrong username or password!": "错误的用户名或密码！",
+    "File": "文件",
+    "Save": "保存",
+    "Load": "打开",
+    "Exit": "退出",
+    "File loaded": "文件已加载",
+    "File saved": "文件已保存"
   }
 ]

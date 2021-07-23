@@ -69,6 +69,9 @@ class Employee(object):
         print("邮箱:", self.email)
         print("学历:", self.edu)
         print("薪水:",self.salary)
+
+    def getInfo(self):
+        return (self.name,self.sex,self.number,self.comment,self.email,self.edu,self.salary)
         
 def msgBox(msg):
     msg_win = tkinter.Tk()

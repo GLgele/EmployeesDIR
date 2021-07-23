@@ -4,6 +4,12 @@ from general import *
 from login import *
 from root import *
 
+global employees
+global title
+employees = []
+retval = 0
+title = "EmployeesDIR - 3.0"
+
 logInit()
 #login_window()
 #exceptionBox("test")

@@ -7,9 +7,11 @@ from general import *
 
 global employees
 global title
+global namelist
 employees = []
 retval = 0
 title = "EmployeesDIR - 3.0"
+namelist = []
 
 def login():
     logOut("loginButton pushed.")
@@ -43,7 +45,15 @@ def login_window():
     loginButton = tkinter.Button(login_win,text = trans("Login",langList),command = login,).grid(column = 2,row = 4)
     login_win.mainloop()
 
+def flush_namelist():
+    global employees
+    global namelist
+    namelist = []
+    for i in employees:
+        namelist.append(i.getInfo[0])
+
 def root_window():
+    global namelist
     root_win = tkinter.Tk()
     root_win.title(title)
     root_win.geometry("640x480")
@@ -57,6 +67,17 @@ def root_window():
     file_menu.add_command(label=trans("Save",langList),command=save_data_window)
     file_menu.add_command(label=trans("Load",langList),command=load_data_window)
     file_menu.add_command(label=trans("Exit",langList),command=onClosing)
+
+    '''
+    #namelist_box.grid(column=1,row=1)
+    sb = tkinter.Scrollbar(root_win)    #垂直滚动条组件
+    sb.pack(side=tkinter.RIGHT,fill=tkinter.Y)  #设置垂直滚动条显示的位置
+    namelist_box = tkinter.Listbox(root_win,height=25,yscrollcommand=sb.set)    #Listbox组件添加Scrollbar组件的set()方法
+    for i in range(1000):
+	    namelist_box.insert(tkinter.END,i)
+    namelist_box.pack(side=tkinter.LEFT,fill=tkinter.BOTH)
+    sb.config(command=namelist_box.yview) #设置Scrollbar组件的command选项为该组件的yview()方法
+    '''
 
     root_win.protocol("WM_DELETE_WINDOW", onClosing)
     root_win.mainloop()

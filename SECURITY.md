@@ -3,12 +3,12 @@
 
 | 版本Version | 支持Support |
 | - | - | - |
-| Beta | Yes |
-| 2.3.x | Yes |
-| 2.2.x | No |
-| 2.1.x | Yes |
-| 2.0 | No |
-| 1.x | No |
+| Beta | <font color=green>Yes</font> |
+| 2.3.x | <font color=green>Yes</font>  |
+| 2.2.x | <font color=red>No</font>  |
+| 2.1.x | <font color=green>Yes</font> |
+| 2.0 | <font color=red>No</font> |
+| 1.x | <font color=red>No</font> |
 
 ##报告漏洞
 

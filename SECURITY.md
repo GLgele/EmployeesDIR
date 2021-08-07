@@ -4,20 +4,20 @@
 |    版本    |
 | ---------- |
 | 2.3.x | 
-| **支持反馈 | 
-| Support** |
+| **支持反馈** | 
+| **Support** |
 | 2.2.x | 
-| **已停止支持 |  
-| Not Supported** |  | :x: |
+| **已停止支持** |  
+| **Not Supported** |  | :x: |
 | 2.1.x | 
-| **支持反馈 |
-| Support** |
+| **支持反馈** |
+| **Support** |
 | 2.0 | 
-| **已停止支持 |
-| Not Supported** |  | :x: |
+| **已停止支持** |
+| **Not Supported** |  | :x: |
 | 1.x | 
-| **已停止支持 |
-| Not Supported** |  | :x: |
+| **已停止支持** |
+| **Not Supported** |  | :x: |
 
 ##报告漏洞
 

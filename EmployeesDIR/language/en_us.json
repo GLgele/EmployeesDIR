@@ -12,6 +12,10 @@
     "Load": "Load",
     "Exit": "Exit",
     "File loaded": "File loaded.",
-    "File saved": "File saved."
+    "File saved": "File saved.",
+    "Wrong with file": "Cannot open or create your file!\nYou may not have specified a file.",
+    "You have unsaved changes.\nDo you want to save?": "You have unsaved changes.\nDo you want to save?",
+    "View": "View",
+    "View All": "View All"
   }
 ]

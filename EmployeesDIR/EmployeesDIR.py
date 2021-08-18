@@ -1,17 +1,18 @@
 import sys,os
 import tkinter
 
-from general import *
+import general
 #from login import *
 #from root import *
 
 global employees
 global title
 global namelist
-employees = []
+general.employees = []
 retval = 0
 title = "EmployeesDIR - 3.0"
 namelist = []
+saveFlag = 0
 
 def login():
     logOut("loginButton pushed.")
@@ -48,41 +49,67 @@ def login_window():
 def flush_namelist():
     global employees
     global namelist
+    global saveFlag
+    saveFlag = 1
     namelist = []
-    for i in employees:
-        namelist.append(i.getInfo[0])
+    for i in range(0,len(general.employees)):
+        info = general.employees[i]
+        namelist.append(info.name)
+    return namelist
+
+def viewAll():
+    view_all_win = tkinter.Tk()
+    view_all_win.title(general.fileName)
+    view_all_win.geometry("600x400")
+    sb = tkinter.Scrollbar(view_all_win)    #垂直滚动条组件
+    sb.pack(side=tkinter.RIGHT,fill=tkinter.Y)  #设置垂直滚动条显示的位置
+    namelist_box = tkinter.Listbox(view_all_win,height=25,yscrollcommand=sb.set)    #Listbox组件添加Scrollbar组件的set()方法
+    '''for i in range(1000):
+        namelist_box.insert(tkinter.END,i)'''
+    namelist_box.pack(side=tkinter.LEFT,fill=tkinter.BOTH)
+    #namelist_box.grid(column=1,row=1)
+    nameList = flush_namelist()
+    for i in nameList:
+        namelist_box.insert(tkinter.END,i)
+    sb.config(command=namelist_box.yview) #设置Scrollbar组件的command选项为该组件的yview()方法
+
 
 def root_window():
     global namelist
     root_win = tkinter.Tk()
     root_win.title(title)
     root_win.geometry("640x480")
-    langList = transInit()
+    langList = general.transInit()
 
     main_menu = tkinter.Menu(root_win)
     root_win.config(menu = main_menu)
     file_menu = tkinter.Menu(main_menu,tearoff=False)
-    main_menu.add_cascade(label = trans("File",langList),menu = file_menu)
+    view_menu = tkinter.Menu(main_menu,tearoff=False)
+    main_menu.add_cascade(label = general.trans("File",langList),menu = file_menu)
+    main_menu.add_cascade(label = general.trans("View",langList),menu = view_menu)
 
-    file_menu.add_command(label=trans("Save",langList),command=save_data_window)
-    file_menu.add_command(label=trans("Load",langList),command=load_data_window)
-    file_menu.add_command(label=trans("Exit",langList),command=onClosing)
+    file_menu.add_command(label=general.trans("Save",langList),command=general.save_data_window)
+    file_menu.add_command(label=general.trans("Load",langList),command=general.load_data_window)
+    file_menu.add_command(label=general.trans("Exit",langList),command=general.onClosing)
+    view_menu.add_command(label=general.trans("View All",langList),command=viewAll)
+
+
 
     '''
-    #namelist_box.grid(column=1,row=1)
-    sb = tkinter.Scrollbar(root_win)    #垂直滚动条组件
-    sb.pack(side=tkinter.RIGHT,fill=tkinter.Y)  #设置垂直滚动条显示的位置
-    namelist_box = tkinter.Listbox(root_win,height=25,yscrollcommand=sb.set)    #Listbox组件添加Scrollbar组件的set()方法
+    #sb = tkinter.Scrollbar(root_win)    #垂直滚动条组件
+    #sb.pack(side=tkinter.RIGHT,fill=tkinter.Y)  #设置垂直滚动条显示的位置
+    namelist_box = tkinter.Listbox(root_win,height=25)    #Listbox组件添加Scrollbar组件的set()方法
     for i in range(1000):
 	    namelist_box.insert(tkinter.END,i)
-    namelist_box.pack(side=tkinter.LEFT,fill=tkinter.BOTH)
-    sb.config(command=namelist_box.yview) #设置Scrollbar组件的command选项为该组件的yview()方法
+    #namelist_box.pack(side=tkinter.LEFT,fill=tkinter.BOTH)
+    namelist_box.grid(column=1,row=1)
+    #sb.config(command=namelist_box.yview) #设置Scrollbar组件的command选项为该组件的yview()方法
     '''
 
-    root_win.protocol("WM_DELETE_WINDOW", onClosing)
+    root_win.protocol("WM_DELETE_WINDOW", general.onClosing)
     root_win.mainloop()
 
-logInit()
+general.logInit()
 #login_window()
 #exceptionBox("test")
 root_window()

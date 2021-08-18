@@ -83,29 +83,39 @@ def msgBox(msg):
 
 #信息导入
 def load_data(filename="Employees.employeesdir"):
+    global fileName
+    global saveFlag
+    global employees
     langList = transInit()
     try:
         file_data = open(filename, "rb")
         employees = pickle.load(file_data)
         file_data.close()
+        fileName = filename
+        saveFlag = 1
         #gui.msgbox("文件已加载","文件加载","确认")
         msgBox(trans("File loaded",langList))
     except BaseException as err:
         #gui.exceptionbox(err,title)
-        exceptionBox(err)
+        exceptionBox(str(err)+"\n\n"+trans("Wrong with file",langList))
 
 #信息导出
 def save_data(filename="Employees.employeesdir"):
+    global fileName
+    global saveFlag
+    global employees
     langList = transInit()
     try:
         file_data = open(filename, "wb")
         pickle.dump(employees, file_data)
         file_data.close()
+        fileName = filename
+        saveFlag = 1
         #gui.msgbox("文件已保存","文件保存","确认")
         msgBox(trans("File saved",langList))
     except BaseException as err:
         #gui.exceptionbox(err,title)
-        exceptionBox(err)
+        exceptionBox(str(err)+"\n\n"+trans("Wrong with file",langList))
 
 def save_data_window():
     langList = transInit()
@@ -136,8 +146,9 @@ def logInit():
         log = open("logs/latest.log","w")
         log.close()
     except BaseException as err:
+        ntime = time.strftime("[%H:%M:%S]:", time.localtime()) 
         print(ntime,"Can't init log functions!",err)
-        exceptionBox("Can't init log functions!\n"+err)
+        exceptionBox("Can't init log functions!\n"+str(err))
 
 def logOut(*msg):
     ntime = time.strftime("[%H:%M:%S]:", time.localtime()) 
@@ -184,21 +195,28 @@ def trans(stri,langList):
     except BaseException as err:
         temps = stri
         logOut("Load langList failed:",err)
-        exceptionBox("Load langlist failed:\n"+err)
+        exceptionBox("Load langlist failed:\n"+str(err))
     return temps
 
 def safeExit():
     logOut("Safe exit.")
-    sys.exit(0)
+    exit()
 
 def onClosing():
-    if ynbox("Do you want to save?",title):
+    langList = transInit()
+    #global saveFlag
+    #if saveFlag:
+    if ynbox(trans("You have unsaved changes.\nDo you want to save?",langList),title):
         save_data_window()
     else:
         safeExit()
+    #else:
+        #safeExit()
 
 global employees
 global title
+global fileName
+global saveFlag
 #global retval
 #global langList
 '''
@@ -210,3 +228,5 @@ pwd = tkinter.StringVar()'''
 employees = []
 retval = 0
 title = "EmployeesDIR - 3.0"
+fileName = "Untitled"
+saveFlag = 0

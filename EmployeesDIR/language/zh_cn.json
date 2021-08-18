@@ -12,6 +12,10 @@
     "Load": "打开",
     "Exit": "退出",
     "File loaded": "文件已加载",
-    "File saved": "文件已保存"
+    "File saved": "文件已保存",
+    "Wrong with file": "在保存或打开文件时遇到了错误！你可能没有指定文件",
+    "You have unsaved changes.\nDo you want to save?": "你有未保存的更改，要保存吗？",
+    "View": "查看",
+    "View All": "查看所有员工"
   }
 ]

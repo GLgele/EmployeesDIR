@@ -16,6 +16,16 @@
     "Wrong with file": "在保存或打开文件时遇到了错误！你可能没有指定文件",
     "You have unsaved changes.\nDo you want to save?": "你有未保存的更改，要保存吗？",
     "View": "查看",
-    "View All": "查看所有员工"
+    "View All": "查看所有员工",
+    "Search": "搜索",
+    "Select": "选择",
+
+    "Name": "名字",
+    "Sex": "性别",
+    "Number": "电话",
+    "Comment": "备注",
+    "Email": "Email",
+    "Edu": "学历",
+    "Salary": "工资"
   }
 ]

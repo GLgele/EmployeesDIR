@@ -72,7 +72,18 @@ class Employee(object):
 
     def getInfo(self):
         return (self.name,self.sex,self.number,self.comment,self.email,self.edu,self.salary)
-        
+  
+def flush_namelist():
+    global employees
+    global namelist
+    global saveFlag
+    saveFlag = 1
+    namelist = []
+    for i in range(0,len(employees)):
+        info = employees[i]
+        namelist.append(info.name)
+    return namelist
+
 def msgBox(msg):
     msg_win = tkinter.Tk()
     msg_win.title(title)
@@ -82,10 +93,11 @@ def msgBox(msg):
     msg_win.mainloop()
 
 #信息导入
-def load_data(filename="Employees.employeesdir"):
+def load_data(filename="Employees.employeesdir",box=None,list=None):
     global fileName
     global saveFlag
     global employees
+    global retval
     langList = transInit()
     try:
         file_data = open(filename, "rb")
@@ -98,6 +110,11 @@ def load_data(filename="Employees.employeesdir"):
     except BaseException as err:
         #gui.exceptionbox(err,title)
         exceptionBox(str(err)+"\n\n"+trans("Wrong with file",langList))
+
+    nameList = flush_namelist()
+    for i in nameList:
+        namelist_box.insert(tkinter.END,i)
+    retval = nameList
 
 #信息导出
 def save_data(filename="Employees.employeesdir"):
@@ -123,11 +140,11 @@ def save_data_window():
     logOut("File saving:",filename)
     save_data(filename)
 
-def load_data_window():
+def load_data_window(box,list):
     langList = transInit()
     filename = fileopenbox(trans("Load",langList),title,sys.path[4]+"\\employees.employeesdir","\\*.employeesdir")
     logOut("File loading:",filename)
-    load_data(filename)
+    load_data(filename,box,list)
 
 def exceptionBox(msg):
     exp_win = tkinter.Tk()
@@ -200,7 +217,7 @@ def trans(stri,langList):
 
 def safeExit():
     logOut("Safe exit.")
-    exit()
+    sys.exit(0)
 
 def onClosing():
     langList = transInit()
@@ -217,7 +234,7 @@ global employees
 global title
 global fileName
 global saveFlag
-#global retval
+global retval
 #global langList
 '''
 global user

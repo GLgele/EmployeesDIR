@@ -16,6 +16,16 @@
     "Wrong with file": "Cannot open or create your file!\nYou may not have specified a file.",
     "You have unsaved changes.\nDo you want to save?": "You have unsaved changes.\nDo you want to save?",
     "View": "View",
-    "View All": "View All"
+    "View All": "View All",
+    "Search": "Search",
+    "Select": "Select",
+
+    "Name": "Name",
+    "Sex": "Sex",
+    "Number": "Number",
+    "Comment": "Comment",
+    "Email": "Email",
+    "Edu": "Education",
+    "Salary": "Salary"
   }
 ]

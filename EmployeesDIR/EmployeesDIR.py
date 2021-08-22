@@ -46,6 +46,61 @@ def login_window():
     loginButton = tkinter.Button(login_win,text = trans("Login",langList),command = login,).grid(column = 2,row = 4)
     login_win.mainloop()
 
+def modifyInfo_(id,win,_name,_sex,_number,_comment,_email,_edu,_salary):
+    win.destroy()
+    general.employees.insert(id+1,general.Employee(_name.get(),_sex.get(),_number.get(),_comment.get(),_email.get(),_edu.get(),_salary.get()))
+    del general.employees[id]
+
+def modifyInfo(id):
+    langList = general.transInit()
+    _name = tkinter.StringVar()
+    _sex = tkinter.StringVar()
+    _number = tkinter.StringVar()
+    _comment = tkinter.StringVar()
+    _email = tkinter.StringVar()
+    _edu = tkinter.StringVar()
+    _salary = tkinter.StringVar()
+
+    modify_win = tkinter.Tk()
+    modify_win.title(title)
+    modify_win.geometry("450x250")
+
+    name_label = tkinter.Label(modify_win,text=general.trans("Name",langList)+": ").grid(column=1,row=1)
+    name_entry = tkinter.Entry(modify_win,textvariable = _name)
+    name_entry.insert(0,general.employees[id].name)
+    name_entry.grid(column=2,row=1)
+    sex_label = tkinter.Label(modify_win,text=general.trans("Sex",langList)+": ").grid(column=1,row=2)
+    sex_entry = tkinter.Entry(modify_win,textvariable = _sex)
+    sex_entry.insert(0,general.employees[id].sex)
+    sex_entry.grid(column=2,row=2)
+    number_label = tkinter.Label(modify_win,text=general.trans("Number",langList)+": ").grid(column=1,row=3)
+    number_entry = tkinter.Entry(modify_win,textvariable = _number)
+    number_entry.insert(0,general.employees[id].number)
+    number_entry.grid(column=2,row=3)
+    comment_label = tkinter.Label(modify_win,text=general.trans("Comment",langList)+": ").grid(column=1,row=4)
+    comment_entry = tkinter.Entry(modify_win,textvariable = _comment)
+    comment_entry.insert(0,general.employees[id].comment)
+    comment_entry.grid(column=2,row=4)
+    email_label = tkinter.Label(modify_win,text=general.trans("Email",langList)+": ").grid(column=1,row=5)
+    email_entry = tkinter.Entry(modify_win,textvariable = _email)
+    email_entry.insert(0,general.employees[id].email)
+    email_entry.grid(column=2,row=5)
+    edu_label = tkinter.Label(modify_win,text=general.trans("Edu",langList)+": ").grid(column=1,row=6)
+    edu_entry = tkinter.Entry(modify_win,textvariable = _edu)
+    edu_entry.insert(0,general.employees[id].edu)
+    edu_entry.grid(column=2,row=6)
+    salary_label = tkinter.Label(modify_win,text=general.trans("Salary",langList)+": ").grid(column=1,row=7)
+    salary_entry = tkinter.Entry(modify_win,textvariable = _salary)
+    salary_entry.insert(0,general.employees[id].salary)
+    salary_entry.grid(column=2,row=7)
+
+    cancel_button = tkinter.Button(modify_win,text=general.trans("Cancel",langList),command=modify_win.destroy)
+    modify_button = tkinter.Button(modify_win,text=general.trans("Modify",langList),command=lambda : modifyInfo_(id = id,win = modify_win,_name=_name,_sex=_sex,_number=_number,_comment=_comment,_email=_email,_edu=_edu,_salary=_salary))
+    cancel_button.grid(column=1,row=8)
+    modify_button.grid(column=2,row=8)
+
+    modify_win.mainloop()
+
 def selectEmployee(box):
     result = -1
     langList = general.transInit()
@@ -55,7 +110,7 @@ def selectEmployee(box):
             break
     detail_win = tkinter.Tk()
     detail_win.title(title)
-    detail_win.geometry("400x200")
+    detail_win.geometry("450x250")
     name_label = tkinter.Label(detail_win,text=general.trans("Name",langList)+": "+box.get(box.curselection()))
     sex_label = tkinter.Label(detail_win,text=general.trans("Sex",langList)+": "+general.employees[result].sex)
     number_label = tkinter.Label(detail_win,text=general.trans("Number",langList)+": "+general.employees[result].number)
@@ -64,6 +119,7 @@ def selectEmployee(box):
     edu_label = tkinter.Label(detail_win,text=general.trans("Edu",langList)+": "+general.employees[result].edu)
     salary_label = tkinter.Label(detail_win,text=general.trans("Salary",langList)+": "+general.employees[result].salary)
     ok_button = tkinter.Button(detail_win,text="OK",command=detail_win.destroy)
+    modify_button = tkinter.Button(detail_win,text=general.trans("Modify",langList),command=lambda : modifyInfo(id = x))
 
     name_label.pack()
     sex_label.pack()
@@ -73,6 +129,7 @@ def selectEmployee(box):
     edu_label.pack()
     salary_label.pack()
     ok_button.pack()
+    modify_button.pack()
 
 def viewAll():
     langList = general.transInit()

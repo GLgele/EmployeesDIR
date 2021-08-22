@@ -15,41 +15,46 @@ namelist = []
 saveFlag = 0
 
 def login():
-    logOut("loginButton pushed.")
-    logOut("User: %s\nPassword: %s"%(user.get(),pwd.get()))
+    general.logOut("loginButton pushed.")
+    general.logOut("User: %s\nPassword: %s"%(user.get(),pwd.get()))
     emptyLabel3 = tkinter.Label(login_win,text = "").grid(column = 2,row = 5)
     if user.get() == "admin" and pwd.get() == "admin":
-        logOut("Admin Logged in.")
+        general.logOut("Admin Logged in.")
         login_win.destroy()
     else:
-        emptyLabel3 = tkinter.Label(login_win,text = trans("Wrong username or password!",langList),fg = "red").grid(column = 2,row = 5)
+        emptyLabel3 = tkinter.Label(login_win,text = general.trans("Wrong username or password!",langList),fg = "red").grid(column = 2,row = 5)
          
 def login_window():
     global login_win
     global user
     global pwd
     global langList
-    langList = transInit()
+    langList = general.transInit()
     login_win = tkinter.Tk()
     login_win.title(title)
     login_win.geometry("400x250")
     user = tkinter.StringVar()
     pwd = tkinter.StringVar()
     emptyTabel1 = tkinter.Label(login_win,text = "\n             ").grid(column = 0,row = 0)
-    login_label = tkinter.Label(login_win,text = trans("UserLogin",langList)).grid(column = 1,row = 1)
-    user_label = tkinter.Label(login_win,text = trans("User:",langList)).grid(column = 1,row = 2)
+    login_label = tkinter.Label(login_win,text = general.trans("UserLogin",langList)).grid(column = 1,row = 1)
+    user_label = tkinter.Label(login_win,text = general.trans("User:",langList)).grid(column = 1,row = 2)
     user_entry = tkinter.Entry(login_win,width = 24,textvariable = user).grid(column = 2,row = 2)
-    pwd_label = tkinter.Label(login_win,text = trans("Password:",langList)).grid(column = 1,row = 3)
+    pwd_label = tkinter.Label(login_win,text = general.trans("Password:",langList)).grid(column = 1,row = 3)
     pwd_entry = tkinter.Entry(login_win,width = 24,textvariable = pwd,show = '*').grid(column = 2,row = 3)
     emptyTabel2 = tkinter.Label(login_win,text = "\n\n\n").grid(column = 0,row = 4)
-    cancelButton = tkinter.Button(login_win,text = trans("Cancel",langList),command = safeExit).grid(column = 1,row = 4)
-    loginButton = tkinter.Button(login_win,text = trans("Login",langList),command = login,).grid(column = 2,row = 4)
+    cancelButton = tkinter.Button(login_win,text = general.trans("Cancel",langList),command = general.safeExit).grid(column = 1,row = 4)
+    loginButton = tkinter.Button(login_win,text = general.trans("Login",langList),command = login,).grid(column = 2,row = 4)
     login_win.mainloop()
 
 def modifyInfo_(id,win,_name,_sex,_number,_comment,_email,_edu,_salary):
     win.destroy()
-    general.employees.insert(id+1,general.Employee(_name.get(),_sex.get(),_number.get(),_comment.get(),_email.get(),_edu.get(),_salary.get()))
-    del general.employees[id]
+    general.employees[id].name = _name.get()
+    general.employees[id].sex = _sex.get()
+    general.employees[id].number = _number.get()
+    general.employees[id].comment = _comment.get()
+    general.employees[id].email = _email.get()
+    general.employees[id].edu = _edu.get()
+    general.employees[id].salary = _salary.get()
 
 def modifyInfo(id):
     langList = general.transInit()
@@ -60,6 +65,13 @@ def modifyInfo(id):
     _email = tkinter.StringVar()
     _edu = tkinter.StringVar()
     _salary = tkinter.StringVar()
+    _name.set(general.employees[id].name)
+    _sex.set(general.employees[id].sex)
+    _number.set(general.employees[id].number)
+    _comment.set(general.employees[id].comment)
+    _email.set(general.employees[id].email)
+    _edu.set(general.employees[id].edu)
+    _salary.set(general.employees[id].salary)
 
     modify_win = tkinter.Tk()
     modify_win.title(title)

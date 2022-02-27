@@ -72,7 +72,7 @@ class Employee(object):
 
     def getInfo(self):
         return (self.name,self.sex,self.number,self.comment,self.email,self.edu,self.salary)
-  
+
 def flush_namelist():
     global employees
     global namelist

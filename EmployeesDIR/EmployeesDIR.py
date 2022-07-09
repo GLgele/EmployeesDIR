@@ -78,7 +78,7 @@ def load_data(filename = "Employees.txt"):
         file_data.close()
         gui.msgbox("文件已加载","文件加载","确认")
 
-    except OSError as err:
+    except BaseException as err:
         #print("文件打开失败！错误代码:")
         #print(err)
         #input("\n按回车继续...")
@@ -93,7 +93,7 @@ def save_data(filename = "Employees.txt"):
         file_data.close()
         gui.msgbox("文件已保存","文件保存","确认")
 
-    except OSError as err:
+    except BaseException as err:
         #print("文件打开失败！错误代码：")
         #print(err)
         #input("\n按回车继续...")
@@ -256,7 +256,8 @@ while choice != 9:
         yn = gui.boolbox("保存到文件吗?",title,("是","否"))
         if yn:
             if filename == "":
-                filename = gui.fileopenbox("请选择要加载的文件","文件加载","","*.employees")
+                filename = gui.filesavebox("请选择要保存的文件","文件保存","","*.employees")
+                save_data(filename)
         else:
             save_data()
         #input("\n员工已添加，按回车继续...")
@@ -297,6 +298,7 @@ while choice != 9:
         load_data(filename)
     elif choice == 7:
         search_term = gui.enterbox("请输入员工姓名","员工信息修改")
+        result = 0
         for x in range(0, len(employees)):
             result = employees[x].find(search_term)
             x = x+1
